@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "tweetnacl": {
+      "version": "0.14.0"
+    },
+    "tweetnacl-util": {
+      "version": "0.13.3"
+    }
+  }
+}
