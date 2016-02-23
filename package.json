@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0",
-    "mys-common-tools": "^0.2.0"
+    "mys-common-tools": "^0.2.0",
+    "velocity-cli": "^0.4.3"
   }
 }
