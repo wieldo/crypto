@@ -1,6 +1,10 @@
 var files = {
   client: [
-    'encryption.js'
+    'index.js',
+    'utils.js',
+    'sym.js',
+    'asym.js',
+    'export.js'
   ]
 };
 
@@ -63,7 +67,28 @@ Package.onTest(function encryptionOnTest(api) {
   ]);
 
   api.addFiles([
-    'encryption.js'
+    'export.js',
+    // utils
+    'utils/key.js',
+    'utils/key-pair.js',
+    'utils/nonce.js',
+    'utils/random.js',
+    'utils/encode.js',
+    'utils/decode.js',
+    // sym
+    'sym/encrypt.js',
+    'sym/encrypt-string.js',
+    'sym/encrypt-object.js',
+    'sym/decrypt.js',
+    'sym/decrypt-string.js',
+    'sym/decrypt-object.js',
+    // asym
+    'asym/encrypt.js',
+    'asym/encrypt-string.js',
+    'asym/encrypt-object.js',
+    'asym/decrypt.js',
+    'asym/decrypt-string.js',
+    'asym/decrypt-object.js'
   ].map(function(file) {
     return 'tests/jasmine/client/' + file;
   }), client);
