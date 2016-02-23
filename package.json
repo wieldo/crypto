@@ -1,0 +1,11 @@
+{
+  "name": "meteor-client-encryption",
+  "scripts": {
+    "test": "velocity test-packages ./ --ci",
+    "test:watch": "velocity test-packages ./"
+  },
+  "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "mys-common-tools": "^0.2.0"
+  }
+}

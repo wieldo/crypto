@@ -1,0 +1,7 @@
+{
+  "extends": "./node_modules/mys-common-tools/.eslintrc",
+  "globals": {
+    "Encryption": false,
+    "nacl": false
+  }
+}
