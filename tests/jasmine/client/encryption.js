@@ -80,6 +80,17 @@ describe('Encryption', () => {
       expect(result).toEqual('bar');
     });
 
+    it('shoudl convert string', () => {
+      const message = 'test';
+      const spyJson = spyOn(JSON, 'stringify').and.returnValue('foo');
+      const spyDec = spyOn(nacl.util, 'decodeUTF8').and.returnValue('bar');
+      const result = Encryption.encode(message);
+
+      expect(spyJson).not.toHaveBeenCalled();
+      expect(spyDec).toHaveBeenCalledWith(message);
+      expect(result).toEqual('bar');
+    });
+
     it('should not convert Uint8Array', () => {
       const obj = new Uint8Array();
       expect(Encryption.encode(obj)).toBe(obj);
@@ -101,6 +112,14 @@ describe('Encryption', () => {
       const result = Encryption.decode(encoded);
 
       expect(result).toEqual(obj);
+    });
+
+    it('should convert string', () => {
+      const message = 'test';
+      const encoded = Encryption.encode(message);
+      const result = Encryption.decode(encoded, false);
+
+      expect(result).toEqual(message);
     });
   });
 
