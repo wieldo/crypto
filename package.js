@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'wieldo:encryption',
-  version: '0.0.1'
+  name: 'wieldo:crypto',
+  version: '0.1.0'
 });
 
 Npm.depends({
@@ -8,7 +8,7 @@ Npm.depends({
   'tweetnacl-util': '0.13.3'
 });
 
-Package.onUse(function encryptionOnUse(api) {
+Package.onUse(function cryptoOnUse(api) {
   api.versionsFrom('METEOR@1.2.1');
 
   api.use([
@@ -38,14 +38,14 @@ Package.onUse(function encryptionOnUse(api) {
   }), 'client');
 
   api.export([
-    'Encryption'
+    'Crypto'
   ], 'client');
 });
 
-Package.onTest(function encryptionOnTest(api) {
+Package.onTest(function cryptoOnTest(api) {
   api.use([
     'ecmascript',
-    'wieldo:encryption',
+    'wieldo:crypto',
     'sanjo:jasmine@0.21.0',
     'velocity:helpers@0.5.0',
     'velocity:html-reporter@0.9.1'

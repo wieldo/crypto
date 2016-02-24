@@ -2,13 +2,13 @@ describe('asym.encrypt()', () => {
   const message = {
     foo: 'bar'
   };
-  const encodedMessage = Encryption.utils.encode(message);
-  const nonce = Encryption.utils.nonce();
-  const keyPair = Encryption.utils.keyPair();
+  const encodedMessage = Crypto.utils.encode(message);
+  const nonce = Crypto.utils.nonce();
+  const keyPair = Crypto.utils.keyPair();
 
   it('should use nacl.box', () => {
     const spySec = spyOn(nacl, 'box').and.returnValue('encrypted');
-    const result = Encryption.asym.encrypt(
+    const result = Crypto.asym.encrypt(
       encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey
     );
 
@@ -19,8 +19,8 @@ describe('asym.encrypt()', () => {
   });
 
   it('should encrypt Uint8Array', () => {
-    const messageBytes = Encryption.utils.key();
-    const result = Encryption.asym.encrypt(
+    const messageBytes = Crypto.utils.key();
+    const result = Crypto.asym.encrypt(
       messageBytes, nonce, keyPair.publicKey, keyPair.secretKey
     );
 
@@ -29,52 +29,45 @@ describe('asym.encrypt()', () => {
 
   // fail
 
-  // Encryption.asymEncrypt( X )
   it('should fail on missing message', () => {
     expect(() => {
-      Encryption.asym.encrypt();
+      Crypto.asym.encrypt();
     }).toThrowError(Match.Error, /message/i);
   });
 
-  // Encryption.asymEncrypt( + , X )
   it('should fail on missing nonce', () => {
     expect(() => {
-      Encryption.asym.encrypt(encodedMessage);
+      Crypto.asym.encrypt(encodedMessage);
     }).toThrowError(Match.Error, /nonce/i);
   });
 
-  // Encryption.asymEncrypt( + , X )
   it('should fail on non Uint8Array nonce', () => {
     expect(() => {
-      Encryption.asym.encrypt(encodedMessage, 'test');
+      Crypto.asym.encrypt(encodedMessage, 'test');
     }).toThrowError(Match.Error, /nonce/i);
   });
 
-  // Encryption.asymEncrypt( + , + , X )
   it('should fail on missing public key', () => {
     expect(() => {
-      Encryption.asym.encrypt(encodedMessage, new Uint8Array);
+      Crypto.asym.encrypt(encodedMessage, new Uint8Array);
     }).toThrowError(Match.Error, /publicKey/i);
   });
 
-  // Encryption.asymEncrypt( + , + , X )
   it('should fail on non Uint8Array public key', () => {
     expect(() => {
-      Encryption.asym.encrypt(encodedMessage, new Uint8Array, 'test');
+      Crypto.asym.encrypt(encodedMessage, new Uint8Array, 'test');
     }).toThrowError(Match.Error, /publicKey/i);
   });
 
-  // Encryption.asymEncrypt( + , + , + , X )
   it('should fail on missing secret key', () => {
     expect(() => {
-      Encryption.asym.encrypt(encodedMessage, new Uint8Array, new Uint8Array);
+      Crypto.asym.encrypt(encodedMessage, new Uint8Array, new Uint8Array);
     }).toThrowError(Match.Error, /secretKey/i);
   });
 
-  // Encryption.asymEncrypt( + , + , + , X )
   it('should fail on non Uint8Array secret key', () => {
     expect(() => {
-      Encryption.asym.encrypt(
+      Crypto.asym.encrypt(
         encodedMessage, new Uint8Array, new Uint8Array, 'test'
       );
     }).toThrowError(Match.Error, /secretKey/i);

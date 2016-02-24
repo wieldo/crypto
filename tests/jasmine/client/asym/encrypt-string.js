@@ -1,13 +1,13 @@
 describe('asym.encryptString()', () => {
   const message = 'foo';
-  const encodedMessage = Encryption.utils.encode(message);
-  const nonce = Encryption.utils.nonce();
-  const keyPair = Encryption.utils.keyPair();
+  const encodedMessage = Crypto.utils.encode(message);
+  const nonce = Crypto.utils.nonce();
+  const keyPair = Crypto.utils.keyPair();
 
   it('should encode and return encrypted', () => {
-    const spyEncrypt = spyOn(Encryption.asym, 'encrypt')
+    const spyEncrypt = spyOn(Crypto.asym, 'encrypt')
       .and.returnValue('encrypted');
-    const result = Encryption.asym.encryptString(
+    const result = Crypto.asym.encryptString(
       message, nonce, keyPair.publicKey, keyPair.secretKey
     );
 
@@ -19,7 +19,7 @@ describe('asym.encryptString()', () => {
 
   it('should fail on non string', () => {
     expect(() => {
-      Encryption.asym.encryptString(123);
+      Crypto.asym.encryptString(123);
     }).toThrowError(Match.Error, /message/i);
   });
 });

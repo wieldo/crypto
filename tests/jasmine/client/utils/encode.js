@@ -5,7 +5,7 @@ describe('utils.encode()', () => {
     };
     const spyJson = spyOn(JSON, 'stringify').and.returnValue('foo');
     const spyDec = spyOn(nacl.util, 'decodeUTF8').and.returnValue('bar');
-    const result = Encryption.utils.encode(obj);
+    const result = Crypto.utils.encode(obj);
 
     expect(spyJson).toHaveBeenCalledWith(obj);
     expect(spyDec).toHaveBeenCalledWith('foo');
@@ -16,7 +16,7 @@ describe('utils.encode()', () => {
     const message = 'test';
     const spyJson = spyOn(JSON, 'stringify').and.returnValue('foo');
     const spyDec = spyOn(nacl.util, 'decodeUTF8').and.returnValue('bar');
-    const result = Encryption.utils.encode(message);
+    const result = Crypto.utils.encode(message);
 
     expect(spyJson).not.toHaveBeenCalled();
     expect(spyDec).toHaveBeenCalledWith(message);
@@ -25,6 +25,6 @@ describe('utils.encode()', () => {
 
   it('should not convert Uint8Array', () => {
     const obj = new Uint8Array();
-    expect(Encryption.utils.encode(obj)).toBe(obj);
+    expect(Crypto.utils.encode(obj)).toBe(obj);
   });
 });

@@ -1,13 +1,13 @@
 describe('asym.decryptString()', () => {
   const message = 'foobar';
-  const decodedMessage = Encryption.utils.encode(message);
-  const nonce = Encryption.utils.nonce();
-  const keyPair = Encryption.utils.keyPair();
+  const decodedMessage = Crypto.utils.encode(message);
+  const nonce = Crypto.utils.nonce();
+  const keyPair = Crypto.utils.keyPair();
 
   it('should call decrypt and return decoded', () => {
-    const spy = spyOn(Encryption.asym, 'decrypt').and
+    const spy = spyOn(Crypto.asym, 'decrypt').and
       .returnValue(decodedMessage);
-    const result = Encryption.asym.decryptString(
+    const result = Crypto.asym.decryptString(
       message, nonce, keyPair.publicKey, keyPair.secretKey
     );
 
@@ -18,12 +18,12 @@ describe('asym.decryptString()', () => {
   });
 
   describe('e2e', () => {
-    const my = Encryption.utils.keyPair();
-    const their = Encryption.utils.keyPair();
-    const encrypted = Encryption.asym.encryptString(
+    const my = Crypto.utils.keyPair();
+    const their = Crypto.utils.keyPair();
+    const encrypted = Crypto.asym.encryptString(
       message, nonce, their.publicKey, my.secretKey
     );
-    const decrypted = Encryption.asym.decryptString(
+    const decrypted = Crypto.asym.decryptString(
       encrypted, nonce, my.publicKey, their.secretKey
     );
 

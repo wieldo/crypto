@@ -1,13 +1,13 @@
-describe('Encryption', () => {
+describe('Crypto', () => {
   it('should contain utils', () => {
-    expect(Encryption.utils).toBeDefined();
+    expect(Crypto.utils).toBeDefined();
   });
 
   it('should contain sym', () => {
-    expect(Encryption.sym).toBeDefined();
+    expect(Crypto.sym).toBeDefined();
   });
 
   it('should contain asym', () => {
-    expect(Encryption.asym).toBeDefined();
+    expect(Crypto.asym).toBeDefined();
   });
 });

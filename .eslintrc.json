@@ -8,8 +8,7 @@
     "mongo": true
   },
   "globals": {
-    "Encryption": false,
-    "users": false,
+    "Crypto": false,
     "sym": false,
     "asym": false,
     "utils": false,

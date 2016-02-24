@@ -1,5 +1,5 @@
-/* globals Encryption:true */
-Encryption = {
+/* globals Crypto:true */
+Crypto = {
   utils,
   sym,
   asym

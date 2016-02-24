@@ -1,5 +1,6 @@
 {
-  "name": "meteor-client-encryption",
+  "name": "wieldo-crypto",
+  "private": true,
   "scripts": {
     "test": "velocity test-packages ./ --ci",
     "test:watch": "velocity test-packages ./",
