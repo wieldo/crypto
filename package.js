@@ -4,6 +4,8 @@ var files = {
     'utils.js',
     'sym.js',
     'asym.js',
+    // externals
+    'externals/users.js',
     'export.js'
   ]
 };
@@ -67,29 +69,33 @@ Package.onTest(function encryptionOnTest(api) {
   ]);
 
   api.addFiles([
-    'export.js',
+    'export',
     // utils
-    'utils/key.js',
-    'utils/key-pair.js',
-    'utils/nonce.js',
-    'utils/random.js',
-    'utils/encode.js',
-    'utils/decode.js',
+    'utils/key',
+    'utils/key-pair',
+    'utils/nonce',
+    'utils/random',
+    'utils/encode',
+    'utils/decode',
     // sym
-    'sym/encrypt.js',
-    'sym/encrypt-string.js',
-    'sym/encrypt-object.js',
-    'sym/decrypt.js',
-    'sym/decrypt-string.js',
-    'sym/decrypt-object.js',
+    'sym/encrypt',
+    'sym/encrypt-string',
+    'sym/encrypt-object',
+    'sym/decrypt',
+    'sym/decrypt-string',
+    'sym/decrypt-object',
     // asym
-    'asym/encrypt.js',
-    'asym/encrypt-string.js',
-    'asym/encrypt-object.js',
-    'asym/decrypt.js',
-    'asym/decrypt-string.js',
-    'asym/decrypt-object.js'
+    'asym/encrypt',
+    'asym/encrypt-string',
+    'asym/encrypt-object',
+    'asym/decrypt',
+    'asym/decrypt-string',
+    'asym/decrypt-object',
+    // externals
+    // users
+    'externals/users/key-from-password',
+    'externals/users/create-and-encrypt'
   ].map(function(file) {
-    return 'tests/jasmine/client/' + file;
+    return 'tests/jasmine/client/' + file + '.js';
   }), client);
 });
