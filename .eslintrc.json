@@ -4,8 +4,7 @@
     "meteor": true,
     "browser": true,
     "jasmine": true,
-    "es6": true,
-    "mongo": true
+    "es6": true
   },
   "globals": {
     "Crypto": false,
