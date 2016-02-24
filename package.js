@@ -94,7 +94,8 @@ Package.onTest(function encryptionOnTest(api) {
     // externals
     // users
     'externals/users/key-from-password',
-    'externals/users/create-and-encrypt'
+    'externals/users/create-and-encrypt',
+    'externals/users/decrypt-secret-key'
   ].map(function(file) {
     return 'tests/jasmine/client/' + file + '.js';
   }), client);
