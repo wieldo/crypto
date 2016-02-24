@@ -1,6 +1,8 @@
 Package.describe({
   name: 'wieldo:crypto',
-  version: '0.1.0'
+  version: '0.1.0',
+  summary: 'Abstraction layer for Tweetnacl',
+  git: 'https://github.com/wieldo/crypto.git'
 });
 
 Npm.depends({
