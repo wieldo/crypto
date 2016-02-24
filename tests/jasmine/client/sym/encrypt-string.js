@@ -1,4 +1,4 @@
-describe('Sym.encryptString()', () => {
+describe('sym.encryptString()', () => {
   const message = 'foo';
   const encodedMessage = Encryption.utils.encode(message);
   const nonce = Encryption.utils.nonce();

@@ -1,4 +1,4 @@
-describe('Users.keyFromPassword()', () => {
+describe('users.keyFromPassword()', () => {
   const password = 'foobar';
   const encodedPassword = Encryption.utils.encode(password);
 

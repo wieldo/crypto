@@ -1,4 +1,4 @@
-describe('Asym.decryptString()', () => {
+describe('asym.decryptString()', () => {
   const message = 'foobar';
   const decodedMessage = Encryption.utils.encode(message);
   const nonce = Encryption.utils.nonce();

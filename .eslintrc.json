@@ -9,10 +9,10 @@
   },
   "globals": {
     "Encryption": false,
-    "Users": false,
-    "Sym": false,
-    "Asym": false,
-    "Utils": false,
+    "users": false,
+    "sym": false,
+    "asym": false,
+    "utils": false,
     "nacl": false
   },
   "rules": {

@@ -1,4 +1,4 @@
-describe('Utils.nonce()', () => {
+describe('utils.nonce()', () => {
   it('should call random(24)', () => {
     const spy = spyOn(Encryption.utils, 'random').and.returnValue('test');
     const result = Encryption.utils.nonce();

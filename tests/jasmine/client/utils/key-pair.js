@@ -1,4 +1,4 @@
-describe('Utils.keyPair()', () => {
+describe('utils.keyPair()', () => {
   it('should generate public and secret key', () => {
     const result = Encryption.utils.keyPair();
 

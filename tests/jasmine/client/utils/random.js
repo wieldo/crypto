@@ -1,4 +1,4 @@
-describe('Utils.random()', () => {
+describe('utils.random()', () => {
   // pass
 
   it('should return 24 length Uint8Array by default', () => {

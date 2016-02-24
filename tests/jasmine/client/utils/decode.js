@@ -1,4 +1,4 @@
-describe('Utils.decode()', () => {
+describe('utils.decode()', () => {
   it('should fail on non Uint8Array', () => {
     expect(() => {
       Encryption.utils.decode('test');

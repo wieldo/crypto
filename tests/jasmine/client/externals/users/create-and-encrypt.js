@@ -1,4 +1,4 @@
-describe('Users.createAndEncrypt()', () => {
+describe('users.createAndEncrypt()', () => {
   const password = 'foobar';
 
   it('should call keyFromPassword()', () => {

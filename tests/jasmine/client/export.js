@@ -1,13 +1,13 @@
 describe('Encryption', () => {
-  it('should contain Utils', () => {
+  it('should contain utils', () => {
     expect(Encryption.utils).toBeDefined();
   });
 
-  it('should contain Sym', () => {
+  it('should contain sym', () => {
     expect(Encryption.sym).toBeDefined();
   });
 
-  it('should contain Asym', () => {
+  it('should contain asym', () => {
     expect(Encryption.asym).toBeDefined();
   });
 });

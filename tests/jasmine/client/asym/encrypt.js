@@ -1,4 +1,4 @@
-describe('Asym.encrypt()', () => {
+describe('asym.encrypt()', () => {
   const message = {
     foo: 'bar'
   };

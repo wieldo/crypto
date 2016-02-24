@@ -1,4 +1,4 @@
-describe('Sym.decryptObject()', () => {
+describe('sym.decryptObject()', () => {
   const message = {
     foo: 'bar'
   };

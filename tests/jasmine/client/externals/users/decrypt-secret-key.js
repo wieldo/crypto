@@ -1,4 +1,4 @@
-describe('Users.decryptSecretKey()', () => {
+describe('users.decryptSecretKey()', () => {
   const password = 'foobar';
   const encrypted = Encryption.users.createAndEncrypt(password);
 

@@ -1,4 +1,4 @@
-describe('Utils.encode()', () => {
+describe('utils.encode()', () => {
   it('should convert object', () => {
     const obj = {
       test: 12
