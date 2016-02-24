@@ -5,6 +5,13 @@
 meteor add wieldo:crypto
 ```
 
+## Dependencies
+
+```
+tweetnacl 0.14.0
+tweetnacl-util 0.13.3
+```
+
 ## API
 
 ### Utils - `Crypto.utils`
