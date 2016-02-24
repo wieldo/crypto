@@ -1,61 +1,45 @@
-var files = {
-  client: [
-    'index.js',
-    'utils.js',
-    'sym.js',
-    'asym.js',
-    // externals
-    'externals/users.js',
-    'export.js'
-  ]
-};
-
-var packages = [
-  'ecmascript',
-  // temp
-  'anti:fake@0.4.1',
-  'accounts-base',
-  'stevezhu:lodash@4.5.0',
-  //
-  'mongo',
-  'check',
-  'aldeed:collection2@2.8.0',
-  'aldeed:simple-schema@1.5.3',
-  'dburles:collection-helpers@1.0.4',
-];
-
-var client = 'client';
-var server = 'server';
-var both = [client, server];
+Package.describe({
+  name: 'wieldo:encryption',
+  version: '0.0.1'
+});
 
 Npm.depends({
   tweetnacl: '0.14.0',
   'tweetnacl-util': '0.13.3'
 });
 
-Package.describe({
-  name: 'wieldo:encryption',
-  version: '0.0.1'
-});
-
 Package.onUse(function encryptionOnUse(api) {
   api.versionsFrom('METEOR@1.2.1');
 
-  api.use(packages);
-  api.imply(packages);
+  api.use([
+    'ecmascript',
+    'stevezhu:lodash@4.5.0',
+    'check@1.1.0'
+  ]);
+
+  api.imply([
+    'stevezhu:lodash@4.5.0',
+    'check@1.1.0'
+  ]);
 
   api.addFiles([
     '.npm/package/node_modules/tweetnacl/nacl-fast.js',
     '.npm/package/node_modules/tweetnacl-util/nacl-util.js'
-  ], client);
+  ], 'client');
 
-  api.addFiles(files.client.map(function(file) {
-    return 'lib/client/' + file;
-  }), client);
+  api.addFiles([
+    'index',
+    'utils',
+    'sym',
+    'asym',
+    'export'
+  ].map(function(file) {
+    return 'src/' + file + '.js';
+  }), 'client');
 
   api.export([
     'Encryption'
-  ], client);
+  ], 'client');
 });
 
 Package.onTest(function encryptionOnTest(api) {
@@ -63,7 +47,6 @@ Package.onTest(function encryptionOnTest(api) {
     'ecmascript',
     'wieldo:encryption',
     'sanjo:jasmine@0.21.0',
-    'velocity:meteor-stubs@1.1.1',
     'velocity:helpers@0.5.0',
     'velocity:html-reporter@0.9.1'
   ]);
@@ -90,13 +73,8 @@ Package.onTest(function encryptionOnTest(api) {
     'asym/encrypt-object',
     'asym/decrypt',
     'asym/decrypt-string',
-    'asym/decrypt-object',
-    // externals
-    // users
-    'externals/users/key-from-password',
-    'externals/users/create-and-encrypt',
-    'externals/users/decrypt-secret-key'
+    'asym/decrypt-object'
   ].map(function(file) {
     return 'tests/jasmine/client/' + file + '.js';
-  }), client);
+  }), 'client');
 });

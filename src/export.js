@@ -2,6 +2,5 @@
 Encryption = {
   utils,
   sym,
-  asym,
-  users
+  asym
 };
