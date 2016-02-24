@@ -3,12 +3,16 @@
   "scripts": {
     "test": "velocity test-packages ./ --ci",
     "test:watch": "velocity test-packages ./",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "precommit": "npm run lint",
+    "commitmsg": "validate-commit-msg"
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0",
     "eslint": "^2.2.0",
     "eslint-config-airbnb": "^6.0.2",
+    "husky": "^0.11.1",
+    "validate-commit-msg": "^2.1.0",
     "velocity-cli": "^0.4.3"
   }
 }
