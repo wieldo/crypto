@@ -5,15 +5,9 @@
 meteor add wieldo:crypto
 ```
 
-
-
 ## API
 
-- [Utils](#utils)
-- [Symetrically](#sym)
-- [Asymetrically](#asym)
-
-### Utils - *Crypto.utils*
+### Utils - `Crypto.utils`
 
 #### keyPair *()* : *Object*
 
@@ -50,7 +44,9 @@ Decodes a messages and coverts it to JSON object or String
 
 - *message* : *Uint8Array* encoded message
 
-### Symetrically - *Crypto.sym*
+---
+
+### Symetrically - `Crypto.sym`
 
 #### encrypt *()* : *Uint8Array*
 
@@ -104,7 +100,9 @@ Decrypts objects symetrically
 - **nonce** : *Uint8Array*
 - **key** : *Uint8Array*
 
-### Asymetrically - *Crypto.asym*
+---
+
+### Asymetrically - `Crypto.asym`
 
 #### encrypt *()* : *Uint8Array*
 
