@@ -7,9 +7,13 @@ describe('Asym.encryptString()', () => {
   it('should encode and return encrypted', () => {
     const spyEncrypt = spyOn(Encryption.asym, 'encrypt')
       .and.returnValue('encrypted');
-    const result = Encryption.asym.encryptString(message, nonce, keyPair.publicKey, keyPair.secretKey);
+    const result = Encryption.asym.encryptString(
+      message, nonce, keyPair.publicKey, keyPair.secretKey
+    );
 
-    expect(spyEncrypt).toHaveBeenCalledWith(encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey);
+    expect(spyEncrypt).toHaveBeenCalledWith(
+      encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey
+    );
     expect(result).toEqual('encrypted');
   });
 

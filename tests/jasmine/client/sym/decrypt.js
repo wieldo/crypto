@@ -52,13 +52,8 @@ describe('Sym.decrypt()', () => {
     const messageUint = Encryption.utils.key();
     const nonce = Encryption.utils.nonce();
     const key = Encryption.utils.key();
-    let encrypted;
-    let decrypted;
-
-    beforeEach(() => {
-      encrypted = Encryption.sym.encrypt(messageUint, nonce, key);
-      decrypted = Encryption.sym.decrypt(encrypted, nonce, key);
-    });
+    const encrypted = Encryption.sym.encrypt(messageUint, nonce, key);
+    const decrypted = Encryption.sym.decrypt(encrypted, nonce, key);
 
     it('should decrypt', () => {
       expect(decrypted).toEqual(messageUint);

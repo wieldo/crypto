@@ -13,13 +13,8 @@ describe('Sym.decryptString()', () => {
   });
 
   describe('e2e', () => {
-    let encrypted;
-    let decrypted;
-
-    beforeEach(() => {
-      encrypted = Encryption.sym.encryptString(message, nonce, key);
-      decrypted = Encryption.sym.decryptString(encrypted, nonce, key);
-    });
+    const encrypted = Encryption.sym.encryptString(message, nonce, key);
+    const decrypted = Encryption.sym.decryptString(encrypted, nonce, key);
 
     it('should decrypt', () => {
       expect(decrypted).toEqual(message);

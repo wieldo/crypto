@@ -15,13 +15,8 @@ describe('Sym.decryptObject()', () => {
   });
 
   describe('e2e', () => {
-    let encrypted;
-    let decrypted;
-
-    beforeEach(() => {
-      encrypted = Encryption.sym.encryptObject(message, nonce, key);
-      decrypted = Encryption.sym.decryptObject(encrypted, nonce, key);
-    });
+    const encrypted = Encryption.sym.encryptObject(message, nonce, key);
+    const decrypted = Encryption.sym.decryptObject(encrypted, nonce, key);
 
     it('should decrypt', () => {
       expect(decrypted).toEqual(message);

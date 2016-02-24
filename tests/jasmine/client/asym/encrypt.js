@@ -8,15 +8,21 @@ describe('Asym.encrypt()', () => {
 
   it('should use nacl.box', () => {
     const spySec = spyOn(nacl, 'box').and.returnValue('encrypted');
-    const result = Encryption.asym.encrypt(encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey);
+    const result = Encryption.asym.encrypt(
+      encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey
+    );
 
     expect(result).toEqual('encrypted');
-    expect(spySec).toHaveBeenCalledWith(encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey);
+    expect(spySec).toHaveBeenCalledWith(
+      encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey
+    );
   });
 
   it('should encrypt Uint8Array', () => {
     const messageBytes = Encryption.utils.key();
-    const result = Encryption.asym.encrypt(messageBytes, nonce, keyPair.publicKey, keyPair.secretKey);
+    const result = Encryption.asym.encrypt(
+      messageBytes, nonce, keyPair.publicKey, keyPair.secretKey
+    );
 
     expect(result).toEqual(jasmine.any(Uint8Array));
   });
@@ -68,7 +74,9 @@ describe('Asym.encrypt()', () => {
   // Encryption.asymEncrypt( + , + , + , X )
   it('should fail on non Uint8Array secret key', () => {
     expect(() => {
-      Encryption.asym.encrypt(encodedMessage, new Uint8Array, new Uint8Array, 'test');
+      Encryption.asym.encrypt(
+        encodedMessage, new Uint8Array, new Uint8Array, 'test'
+      );
     }).toThrowError(Match.Error, /secretKey/i);
   });
 });

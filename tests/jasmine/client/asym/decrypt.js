@@ -8,10 +8,14 @@ describe('Asym.decrypt()', () => {
 
   it('should use nacl.box.open', () => {
     const spy = spyOn(nacl.box, 'open').and.returnValue('foo');
-    const result = Encryption.asym.decrypt(encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey);
+    const result = Encryption.asym.decrypt(
+      encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey
+    );
 
     expect(result).toEqual('foo');
-    expect(spy).toHaveBeenCalledWith(encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey);
+    expect(spy).toHaveBeenCalledWith(
+      encodedMessage, nonce, keyPair.publicKey, keyPair.secretKey
+    );
   });
 
   // fail
@@ -54,7 +58,9 @@ describe('Asym.decrypt()', () => {
 
   it('should fail on non Uint8Array secret key', () => {
     expect(() => {
-      Encryption.asym.decrypt(new Uint8Array, new Uint8Array, new Uint8Array, 'test');
+      Encryption.asym.decrypt(
+        new Uint8Array, new Uint8Array, new Uint8Array, 'test'
+      );
     }).toThrowError(Match.Error, /key/i);
   });
 
@@ -62,13 +68,12 @@ describe('Asym.decrypt()', () => {
     const messageUint = Encryption.utils.key();
     const my = Encryption.utils.keyPair();
     const their = Encryption.utils.keyPair();
-    let encrypted;
-    let decrypted;
-
-    beforeEach(() => {
-      encrypted = Encryption.asym.encrypt(messageUint, nonce, their.publicKey, my.secretKey);
-      decrypted = Encryption.asym.decrypt(encrypted, nonce, my.publicKey, their.secretKey);
-    });
+    const encrypted = Encryption.asym.encrypt(
+      messageUint, nonce, their.publicKey, my.secretKey
+    );
+    const decrypted = Encryption.asym.decrypt(
+      encrypted, nonce, my.publicKey, their.secretKey
+    );
 
     it('should decrypt', () => {
       expect(decrypted).toEqual(messageUint);
