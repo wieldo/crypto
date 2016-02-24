@@ -2,11 +2,13 @@
   "name": "meteor-client-encryption",
   "scripts": {
     "test": "velocity test-packages ./ --ci",
-    "test:watch": "velocity test-packages ./"
+    "test:watch": "velocity test-packages ./",
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0",
-    "mys-common-tools": "^0.2.0",
+    "eslint": "^2.2.0",
+    "eslint-config-airbnb": "^6.0.2",
     "velocity-cli": "^0.4.3"
   }
 }
