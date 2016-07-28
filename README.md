@@ -168,3 +168,8 @@ Decrypts objects asymetrically
 - **nonce** : *Uint8Array*
 - **publicKey** : *Uint8Array* - their public key
 - **secretKey** : *Uint8Array* - your secret key
+
+## Donate
+If you want to help our developers create software donate please.  
+
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V98VLPSG6NQA6)
